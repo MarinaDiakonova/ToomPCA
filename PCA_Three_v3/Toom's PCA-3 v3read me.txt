@@ -1,0 +1,34 @@
+TOOM'S PCA - for three states
+
+The program is designed to model Toom's probabalistic cellular automata, in this case a system of n x m squares. Each square can be coloured in three ways, and the colouring rule is the same for all squares: 
+
+For each site, find the dominant colour of neighbourhood N. If there are several
+rivaling colours, pick one with equal probability. Update site to that colour. 
+After that, the site changes colour with probability lambda; so with probability 
+lambda/2 it becomes, say, red if it's yellow, and with probability lambda/2 it becomes blue. 
+
+The boundary conditions are periodic. 
+
+Almost all the buttons are divided into those that change the system and its evolution rules and ones that attend to the visuals. 
+
+
+%%%%%%%%%%%%%% BUTTONS %%%%%%%%%%%%%%%%%%
+* Initial Weight on reds, Initial Weight on Blues. The default starting position is (statistically) an even split between the reds, blues and yellow. The weights can be changed by pressing the buttons and sliding the black rectangle along the scale. However, once the rectangle is in motion, the precision of the split is never again this accurate. Reds can be 0.33, or 0.34 % of the total, but not as close to 1/3 as float-point precision will allow. Hence, if equidistribution is required, it's best to restart the application rather than set the two weights manually.
+Weight on red can vary between 0 and 1. Weight on blue varies between 0 and weight on red. If weight on red exceeds (1 - weight on blue), then weight on blue is changed to keep the total weight 1. 
+
+* Neighbourhood can be changed by pressing the 'change neighbourhood' button. When that is done a small network comes up, with a sample square crossed with diagonal lines. Press the squares to select/deselect those whose colour (state) will affect the sample square's immediate future. The default neighbourhood is the square itself, its northern and eastern neighbour, though these squares will not show as selected (i.e. in red) the first time the 'change neighbourhood' button is pressed.
+
+* Lambda can take values between 0 and 1
+
+
+%%%%%%%%%%Visuals, and related buttons:%%%%%%%%%%
+
+* Framerate controls how many evolutions are displayed per second. 
+
+* Automatic evolution button makes it possible to switch between different modes of dispaly. Evolution on click makes the system display the result only on the press of the "start" button. 
+
+* The system evolving to the next time step, and the display, are different. It is possible to display not every iteration but every other iteration. In this mode the framerate/automatic evolution buttons will also reflect only every second iteration. Note that this does not change the evolution rules, it only picks out certain times to display the system.
+
+* The network size can be changed by setting the width and height in terms of the number of the squares.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
